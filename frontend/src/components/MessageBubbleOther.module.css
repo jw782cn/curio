@@ -1,0 +1,128 @@
+.messageBubbleOther {
+    display: flex;
+    align-items: flex-start;
+}
+
+.avatarWithOnlineIndicator {
+    margin-right: 2.13px;
+    width: 17.07px;
+    height: 17.07px;
+    position: relative;
+}
+
+.avatarUrl {
+    width: 88.28%;
+    height: 88.28%;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 107px;
+}
+
+.onlineIndicator {
+    width: 3.34px;
+    height: 3.34px;
+    background-color: #00B140;
+    border-radius: 50%;
+    position: absolute;
+    right: -0.07px;
+    bottom: -0.01px;
+    border: 1px solid white;
+}
+
+.messageBubble {
+    display: flex;
+    align-items: center;
+}
+
+.bubbleLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.bubbleTip {
+    padding: 0 0.08px 0.46px 0.27px;
+    display: flex;
+    align-items: center;
+    height: 5.94px;
+    width: 4.65px;
+    border-right: 3px solid #F5F5F5;
+}
+
+.topVectorTip {
+    width: 4.65px;
+    height: 5.94px;
+}
+
+.bottomCurveRectangle {
+    width: 3.2px;
+    background-color: #F5F5F5;
+    flex: 1;
+}
+
+.bottomCurveVector {
+    width: 3.2px;
+    height: 3.73px;
+}
+
+.bubbleRight {
+    background-color: #F5F5F5;
+    border-radius: 0px 3px 3px 0px;
+    padding: 2.13px 4.27px 2.14px 0;
+    display: flex;
+    align-items: center;
+}
+
+.sender {
+    margin-bottom: 2.13px;
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    color: #1A1A1A;
+    margin-right: 5.34px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.role {
+    color: #666666;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.text {
+    margin-right: 4.27px;
+    padding: 0 0 4.87px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+.imDownAnyIdeas {
+    color: #1A1A1A;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-self: stretch;
+}
+
+.num1135Am {
+    color: #666666;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+}

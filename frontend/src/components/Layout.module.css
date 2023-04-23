@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    /* height: calc(100vh - 60px); */
+}
+
+.left {
+    display: flex;
+    width: 30%;
+    background-color: #f0f0f0;
+}
+
+.right {
+    display: flex;
+    width: 70%;
+    background-color: #d0d0d0;
+}

@@ -1,0 +1,50 @@
+{
+    "nodes": [
+        {
+            "id": "0",
+            "name": "React",
+            "symbolSize": 19.12381,
+            "x": -266.82776,
+            "y": 299.6904,
+            "value": 28.685715,
+            "category": 0
+        },
+        {
+            "id": "1",
+            "name": "Python",
+            "symbolSize": 2.6666666666666665,
+            "x": -418.08344,
+            "y": 446.8853,
+            "value": 4,
+            "category": 0
+        },
+        {
+            "id": "2",
+            "name": "API",
+            "symbolSize": 6.323809333333333,
+            "x": -212.76357,
+            "y": 245.29176,
+            "value": 9.485714,
+            "category": 1
+        }
+    ],
+    "links": [
+        {
+            "source": "1",
+            "target": "2"
+        },
+        {
+            "source": "0",
+            "target": "2"
+        }
+
+    ],
+    "categories": [
+        {
+            "name": "Frontend"
+        },
+        {
+            "name": "Backend"
+        }
+    ]
+}

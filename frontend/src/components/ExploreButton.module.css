@@ -1,0 +1,36 @@
+  .ExploreButton {
+      background-color: #3cb371;
+      overflow: hidden;
+      border-radius: 8px;
+      padding: 10px 16px;
+      /* box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 100px;
+      right: 0;
+      width: 200px;
+      height: 60px;
+      border: 0.1px solid white;
+  }
+
+  .vector {
+      /* width: 16.78%;
+      align-self: stretch;
+      margin-right: 12px;
+      object-fit: cover; */
+      flex-shrink: 0; /* Add this line */
+      height: 100%;
+      /* Add this line */
+      margin-right: 12px;
+      object-fit: contain;
+      /* Change this line */
+  }
+
+  .text {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+  }

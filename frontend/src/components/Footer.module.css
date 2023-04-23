@@ -1,0 +1,30 @@
+.footer {
+    background-color: white;
+    padding: 0 17.08px 0 17.07px;
+    box-shadow: 0 1px 0 0 lavender inset;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.frame2897 {
+    padding: 7.47px 0;
+    display: flex;
+    align-items: flex-start;
+    width: 277.44px;
+    align-self: stretch;
+}
+
+.startTyping {
+    width: 277.44px;
+    color: text-gray;
+    font-family: eloquia-text-7-regular;
+}
+
+.frame2898 {
+    padding: 8.54px 6.39px 8.53px 23.48px;
+    display: flex;
+    align-items: center;
+    width: 8.54px;
+    height: 8.54px;
+}
