@@ -10,15 +10,18 @@ from langchain.schema import (
 
 
 class chatgpt():
-    def __init__(self):
+    def __init__(self, model_name='gpt-4', pl_tags=["curio"]):
         load_dotenv()
         promptlayer.api_key = os.getenv("PROMPTLAYER_API_KEY")
         openai = promptlayer.openai
         # openai.organization = os.getenv("OPENAI_ORGANIZATION")
         openai.api_key = os.getenv("OPENAI_API_KEY")
+
+        self.model_name = model_name
+        self.pl_tags = pl_tags
         
-    def chat_with_messages(self, messages, model_name='gpt-4'):
-        chat = PromptLayerChatOpenAI(pl_tags=["langchain", model_name], model_name=model_name)
+    def chat_with_messages(self, messages):
+        chat = PromptLayerChatOpenAI(pl_tags=self.pl_tags, model_name=self.model_name)
         response = chat(messages)
         return response
     
