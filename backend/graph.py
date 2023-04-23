@@ -92,7 +92,7 @@ class Graph():
         '''
         insert new node to tree
         '''
-        node = TreeNode(len(self.nodes) + 1, name, name)
+        node = TreeNode(len(self.nodes), name, name)
         node.context.append(f'question: {question} \n answer: {answer}')
         print("insert node: ", node.id, node.name)
         self.nodes[parent_id].children.append(node)
@@ -129,7 +129,7 @@ class Graph():
         user_prompt = f'current tree: \n {self.get_text()} \n\n===\n\ncurrent q&a:\nquestion:\n{question}\nanswer:\n{answer}'
         user_message = HumanMessage(user_prompt)
         messages = [system_message, user_message]
-        response = self.chatgpt.chat_with_messages(messages)
+        response = self.chatgpt.chat_with_messages(messages, model_name="gpt-4")
         response = json.dumps(response)
         response["arg1"] = int(response["arg1"])
         return response
