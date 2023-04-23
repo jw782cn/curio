@@ -68,13 +68,13 @@ def get_text_from_file(filename):
     with open(filename, "r") as f:
         return f.read()
 
-class graph():
+class Graph():
     def __init__(self, topic):
         self.topic = topic
         self.root = TreeNode(0, topic, topic)
         self.nodes = {0: self.root}
         # graph is json for frontend
-        self.chatgpt = chatgpt()
+        self.chatgpt = chatgpt.chatgpt()
          
     def get_graph(self):
         '''
@@ -155,3 +155,11 @@ class graph():
             self.update_node(operation["arg1"], question, answer)
         print("updated data")
         
+    def get_related_context(self, node_id):
+        '''
+        return related context for node_id
+        '''
+        contexts = self.nodes[node_id].context
+        print("get related context for node: ", node_id)
+        contexts = "\n".join(contexts)
+        return contexts
