@@ -11,7 +11,7 @@ class Chat():
         self.messages.append(HumanMessage(content=question))
         response = self.chatgpt(self.messages)
         self.messages.append(response)
-        return response
+        return response.content
     
     def suggest_new_questions(self):
         with open("backend/prompt/explain_more.txt", "r") as f:
