@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from chat import Chat
+from flask_cors import CORS
 from graph import Graph
 
 app = Flask(__name__)
+CORS(app)
 chat = Chat(model_name='gpt-3.5-turbo')
 graphs = {}
 local_storage = {"current_graph": "None"}
@@ -41,12 +43,13 @@ def get_graph_name():
 # curl -X POST -H "Content-Type: application/json" -d '{"topic":"finance"}' http://127.0.0.1:5000/create_graph
 @app.route('/create_graph', methods=['POST'])
 def create_graph():
-    topic = request.json['topic']
-    graph = Graph(topic)
-    length = len(graphs)
-    graphs[str(length)] = graph
     if local_storage["current_graph"] == "None":
-        local_storage["current_graph"] = str(length)
+        topic = request.json['topic']
+        graph = Graph(topic)
+        length = len(graphs)
+        graphs[str(length)] = graph
+        if local_storage["current_graph"] == "None":
+            local_storage["current_graph"] = str(length)
     return str(length)
 
 @app.route('/get_current_graph_id')

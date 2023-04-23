@@ -24,7 +24,7 @@ def tree_to_json(node, x=0, y=0):
         node_json = {
             "id": str(node.id),
             "name": node.name,
-            "symbolSize": 5,
+            "symbolSize": 100,
             "x": x,
             "y": y,
             "value": node.value,

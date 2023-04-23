@@ -5,9 +5,13 @@ import Footer from "./Footer";
 const ChatWindow = () => {
     const [messages, setMessages] = useState([]);
 
+    
+
     useEffect(() => {
         if (messages.length > 0 && messages[messages.length - 1].sender !== "chatgpt") {
             setTimeout(() => {
+              // fetch answer from chatgpt api
+
                 handleSendMessage({ text: "Good Question", sender: "chatgpt" });
             }, 1000);
         }
