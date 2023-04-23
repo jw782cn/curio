@@ -14,7 +14,7 @@ class chatgpt():
         load_dotenv()
         promptlayer.api_key = os.getenv("PROMPTLAYER_API_KEY")
         openai = promptlayer.openai
-        openai.organization = os.getenv("OPENAI_ORGANIZATION")
+        # openai.organization = os.getenv("OPENAI_ORGANIZATION")
         openai.api_key = os.getenv("OPENAI_API_KEY")
         
     def chat_with_messages(self, messages, model_name='gpt-4'):
