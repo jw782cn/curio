@@ -5,26 +5,59 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    height: auto; /* Change the height to auto */
+    /* min-height: 100px; */
 }
 
 .frame2897 {
     padding: 7.47px 0;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     width: 277.44px;
     align-self: stretch;
+    height: auto; /* Change the height to auto */
 }
 
 .startTyping {
     width: 277.44px;
     color: text-gray;
     font-family: eloquia-text-7-regular;
+    border: none; /* Removes the border */
+    outline: none; /* Removes the focus outline */
+    background: none; /* Removes the default background */
+    resize: none; /* Disables manual resizing */
+    overflow: hidden; /* Hides the scrollbars */
+    height: auto; /* Change the height to auto */
+    min-height: 1em; /* Add a minimum height */
+}
+
+.startTyping::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar for WebKit browsers */
 }
 
 .frame2898 {
     padding: 8.54px 6.39px 8.53px 23.48px;
     display: flex;
     align-items: center;
-    width: 8.54px;
-    height: 8.54px;
+    width: 10px;
+    /* Set the width to 10px */
+    height: 10px;
+    /* Set the height to 10px */
+    cursor: pointer;
+    /* Change the cursor on hover */
+}
+
+@keyframes resize {
+    0% {
+        height: 1em;
+    }
+
+    100% {
+        height: auto;
+    }
+}
+
+.startTyping:focus,
+.startTyping:valid {
+    animation: resize 0.2s;
 }

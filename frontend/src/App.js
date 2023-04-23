@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MessageBubbleSelf from './components/MessageBubbleSelf';
 import MessageBubbleOther from './components/MessageBubbleOther';
+import ChatWindow from './components/ChatWindow';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       <div className="App-Content">
         <div className="left">
           <Header />
+          <ChatWindow />
+          {/* <Footer /> */}
           {/* <MessageBubbleSelf />
           <MessageBubbleOther />
           <Footer /> */}

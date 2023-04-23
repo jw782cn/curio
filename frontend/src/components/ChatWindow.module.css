@@ -1,0 +1,109 @@
+.chatWindow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    overflow-y: auto;
+    /* flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 10px;
+    overflow-y: auto; */
+}
+
+.messageContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.userAvatar {
+    background-color: #3a3a5e;
+}
+
+.chatGPTAvatar {
+    background-color: #3cb371;
+}
+
+.messageBubble {
+    background-color: #3cb371;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 14px;
+    text-align: left;
+}
+
+.chatGPTMessage {
+    justify-content: flex-end;
+}
+
+
+.userMessage {
+    justify-content: flex-end;
+}
+
+.userMessageBubble {
+    background-color: #3a3a5e;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 14px;
+    text-align: left;
+}
+
+.chatGPTMessageBubble {
+    background-color: #3cb371;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 14px;
+    text-align: left;
+}
+
+.chatMessagesContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chatGPTMessageButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    flex-direction: column;
+}
+
+.chatGPTMessageButton {
+    background-color: #3cb371;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
