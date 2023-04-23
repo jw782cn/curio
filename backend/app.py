@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from chat import Chat
 from graph import Graph
 
 app = Flask(__name__)
+chat = Chat()
 graphs = {}
 local_storage = {"current_graph": "None"}
 
