@@ -1,10 +1,18 @@
 import json
 import chatgpt
+from langchain.schema import (
+    AIMessage,
+    HumanMessage,
+    SystemMessage
+)
+from langchain import PromptTemplate
 
 class TreeNode:
     def __init__(self, id, value, name, children=None):
         self.id = id
+        # value is the q & a related to this node
         self.value = value
+        self.context = []
         self.children = children if children is not None else []
         self.name = name
 
@@ -49,20 +57,23 @@ def tree_to_text(node, indent=0):
     if node is None:
         return ""
 
-    text = "    " * indent + "+-- " + node.name + "\n"
+    text = "    " * indent + "+-- " + node.id + " " + node.name + "\n"
 
     for child in node.children:
         text += tree_to_text(child, indent + 1)
 
     return text
 
+def get_text_from_file(filename):
+    with open(filename, "r") as f:
+        return f.read()
 
 class graph():
     def __init__(self, topic):
         self.topic = topic
         self.root = TreeNode(0, topic, topic)
+        self.nodes = {0: self.root}
         # graph is json for frontend
-        self.graph = self.create_graph()
         self.chatgpt = chatgpt()
          
     def get_graph(self):
@@ -77,38 +88,70 @@ class graph():
         '''
         return tree_to_text(self.root)
 
-    def create_graph(self):
-        # demo
-        # open file "sample.json"
-        with open("sample.json", "r") as f:
-            graph = json.load(f)
-        return graph
+    def insert_node(self, parent_id, name, question, answer):
+        '''
+        insert new node to tree
+        '''
+        node = TreeNode(len(self.nodes) + 1, name, name)
+        node.context.append(f'question: {question} \n answer: {answer}')
+        print("insert node: ", node.id, node.name)
+        self.nodes[parent_id].children.append(node)
+        
+    def update_node(self, node_id, question, answer):
+        '''
+        update existing node
+        '''
+        node = self.nodes[node_id]
+        node.context.append(f'question: {question} \n answer: {answer}')
+        print("update node: ", node.id, node.name)
 
-    def init_graph(self):
-        # demo
-        # open file "sample.json"
-        graph = {"nodes": [
+    def update_graph(self, question, answer):
+        '''
+        update graph with new message (Q&A)
+        1. get current knowledge tree structure
+        2. ask chatgpt to insert new node or update existing node
+        
+            For the "insert" operation: 
             {
-                "id": "0",
-                "name": self.topic,
-                "symbolSize": 100,
-                "x": 0,
-                "y": 0,
-                "value": self.topic,
-                "category": 0
-            },
-        ], "links": [], "categories": [{
-            "name": self.topic
-        }]}
-        return graph
+                "operation: "insert",
+                "arg1": {parent_id},
+                "arg2": {summarized_topic},
+            }
+            For the "update" operation:
+            {
+                "operation: "update",
+                "arg1": {updated_id},
+                "arg2": "",
+            }
+        '''
+        system_prompt = get_text_from_file("update_graph.txt")
+        system_message = SystemMessage(system_prompt)
+        user_prompt = f'current tree: \n {self.get_text()} \n\n===\n\ncurrent q&a:\nquestion:\n{question}\nanswer:\n{answer}'
+        user_message = HumanMessage(user_prompt)
+        messages = [system_message, user_message]
+        response = self.chatgpt.chat_with_messages(messages)
+        response = json.dumps(response)
+        response["arg1"] = int(response["arg1"])
+        return response
     
-    def get_tree(self):
+    def update_data(self, operation, question, answer):
+        '''
+        For the "insert" operation: 
+        {
+            "operation: "insert",
+            "arg1": {parent_id},
+            "arg2": {summarized_topic},
+        }
+        For the "update" operation:
+        {
+            "operation: "update",
+            "arg1": {updated_id},
+            "arg2": "",
+        }
+        '''
+        if operation.operation == "insert":
+            self.insert_node(operation["arg1"], operation["arg2"], question, answer)
+        elif operation.operation == "update":
+            self.update_node(operation["arg1"], question, answer)
+        print("updated data")
         
-        
-
-    def update_graph(self,):
-        
-        pass
-
-    def update_data(self):
-        pass
