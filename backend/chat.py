@@ -1,6 +1,6 @@
 from chatgpt import *
 
-class chat():
+class Chat():
     def __init__(self):
         self.chatgpt = chatgpt()
         self.messages = [SystemMessage(content="")]
@@ -29,7 +29,7 @@ class chat():
         return explain_more_questions, in_depth_questions, in_width_questions
 
 if __name__ == '__main__':
-    chat = chat()
+    chat = Chat()
     chat.ask_question(question="What is finance?")
     chat.ask_question(question="What is the difference between finance and money?")
     chat.ask_question(question="What is the difference between finance and gold?")
