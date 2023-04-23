@@ -1,0 +1,44 @@
+.header {
+    box-shadow: 0 -1px 0 0 inset;
+    position: relative;
+}
+
+.rectangle3106 {
+    width: calc(100% + -0.13px);
+    height: 100%;
+    background-color: white;
+    position: relative;
+}
+
+.messageParticipants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: calc(50% - 76px / 2);
+    top: calc(50% - 20.13px / 2);
+}
+
+.teamUnicorns {
+    color: gray;
+    margin-bottom: 2.13px;
+    font-weight: 600;
+    font-size: 1.0714em;
+}
+
+.avatarUrl {
+    width: 3.14%;
+    height: 29.77%;
+    position: absolute;
+    left: 6.94px;
+    top: 11.74px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 80px;
+}
+
+.kebabHorizontal {
+    position: absolute;
+    right: 12.67px;
+    top: 13.87px;
+}

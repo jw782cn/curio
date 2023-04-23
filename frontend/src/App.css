@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background-color: #3cb371;
+  /* min-height: 100vh; */
+  flex: 0 0 60px;
+  /* height: '60px'; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* font-size: calc(1px + 2vmin); */
+  color: white;
+}
+
+.App-Content {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  /* height: 'calc(100vh - 60px)'; */
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.left {
+  flex: 0 0 20%;
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.right {
+  flex: 0 0 80%;
+  background-color: #ffffff;
+  padding: 1rem;
+}

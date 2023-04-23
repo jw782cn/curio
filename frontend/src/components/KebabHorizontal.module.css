@@ -1,0 +1,11 @@
+.kebabHorizontal {
+    padding: 3.2px 0 3.74px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    height: 100%;
+    flex: 1;
+    object-fit: cover;
+}

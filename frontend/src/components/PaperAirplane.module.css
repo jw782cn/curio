@@ -1,0 +1,11 @@
+.paperAirplane {
+    padding: 0.59px 0.01px 0.6px 0.02px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    flex: 1;
+    align-self: stretch;
+    object-fit: cover;
+}

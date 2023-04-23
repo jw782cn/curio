@@ -1,0 +1,91 @@
+.messageBubbleSelf {
+    display: flex;
+    align-items: center;
+}
+
+.bubbleRight {
+    background-color: #3cb371;
+    border-radius: 3px 0px 0px 3px;
+    padding: 2.13px 0 2.14px 4.27px;
+    display: flex;
+    align-items: center;
+}
+
+.body {
+    display: flex;
+    align-items: flex-start;
+}
+
+.text {
+    margin-right: 4.27px;
+    padding: 0 0 4.87px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #3cb371;
+}
+
+.hiThereMyNameIsAnnaliseAndIWill {
+    color: white;
+    font-family: "Eloquia", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.timeReadReceipt {
+    display: flex;
+    align-items: flex-end;
+    align-self: stretch;
+}
+
+.frame2886 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.num1131Am {
+    color: white;
+    margin-right: 2.13px;
+    font-family: "Eloquia", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.readReceipt {
+    width: 8.54px;
+    height: 4.27px;
+}
+
+.bubbleLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.bubbleTip {
+    padding: 0 0.27px 0.46px 0.08px;
+    display: flex;
+    align-items: center;
+    height: 5.94px;
+    width: 4.65px;
+    border-left: 3px solid #3cb371;
+}
+
+.topVectorTip {
+    width: 4.65px;
+    height: 5.94px;
+}
+
+.bottomCurveRectangle {
+    width: 3.2px;
+    background-color: #3cb371;
+    flex: 1;
+}
+
+.bottomCurveVector {
+    width: 3.2px;
+    height: 3.73px;
+}
