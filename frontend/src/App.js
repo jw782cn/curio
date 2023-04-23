@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>LearningGPT</h3>
+        <h3>CURIO</h3>
       </header>
       <div className="App-Content">
         <div className="left">

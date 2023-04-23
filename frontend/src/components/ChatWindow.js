@@ -24,8 +24,10 @@ const ChatWindow = () => {
     };
 
     const getMoreQuestionsFromAPI = async () => {
-      const response = await fetch("http://127.0.0.1:5000/suggest_new_questions");
-      const { questions } = await response.json();
+      const response = await fetch("http://127.0.0.1:5000/suggest_new_questions", {
+        method: "GET"
+      });
+      const questions = await response.json();
       console.log(questions);
       // {"explain_more_questions": explain_more_questions, "in_depth_questions": in_depth_questions, "in_width_questions": in_width_questions}
       // set to moreQuestions

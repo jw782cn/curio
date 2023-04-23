@@ -58,7 +58,7 @@ const EChartsGraph = () => {
             ],
             series: [
                 {
-                    name: 'Les Miserables',
+                    name: 'Finance',
                     type: 'graph',
                     layout: 'none',
                     data: graph.nodes,
