@@ -123,7 +123,7 @@ class Graph():
         user_prompt = f'current tree: \n {self.get_text()} \n\n===\n\ncurrent q&a:\nquestion:\n{question}\nanswer:\n{answer}'
         user_message = HumanMessage(content=user_prompt)
         messages = [system_message, user_message]
-        response = self.chatgpt.chat_with_messages(messages, model_name="gpt-4")
+        response = self.chatgpt.chat_with_messages(messages)
         response = json.loads(response.content)
         print(response)
         response["arg1"] = int(response["arg1"])
