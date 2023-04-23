@@ -5,7 +5,6 @@ class graph():
         self.data = data
         self.graph = self.create_graph()
         
-        
     def create_graph(topic : str):
         pass
         
