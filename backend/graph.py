@@ -130,8 +130,10 @@ class Graph():
         user_message = HumanMessage(user_prompt)
         messages = [system_message, user_message]
         response = self.chatgpt.chat_with_messages(messages, model_name="gpt-4")
-        response = json.dumps(response)
+        response = json.dumps(response.content)
         response["arg1"] = int(response["arg1"])
+        # update data
+        self.update_data(response, question, answer)
         return response
     
     def update_data(self, operation, question, answer):
