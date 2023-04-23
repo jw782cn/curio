@@ -24,7 +24,7 @@ def create_graph():
     topic = request.json['topic']
     graph = Graph(topic)
     length = len(graphs)
-    graphs[topic] = graph
+    graphs[str(length)] = graph
     if local_storage["current_graph"] == "None":
         local_storage["current_graph"] = str(length)
     return str(length)
