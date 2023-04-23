@@ -11,6 +11,24 @@ local_storage = {"current_graph": "None"}
 def hello():
     return 'Hello, World!'
 
+@app.route('/ask_question', methods=['POST'])
+def ask_question():
+    question = request.json['question']
+    answer = chat.ask_question(question=question)
+    # update graph
+    current_graph = local_storage["current_graph"]
+    graphs[current_graph].update_graph(question, answer)
+    return answer
+
+@app.route('/suggest_new_questions', methods=['GET'])
+def suggest_new_questions():
+    current_graph = local_storage["current_graph"]
+    if current_graph == "None":
+        return "None"
+    explain_more_questions, in_depth_questions, in_width_questions = chat.suggest_new_questions()
+    return jsonify({"explain_more_questions": explain_more_questions, "in_depth_questions": in_depth_questions, "in_width_questions": in_width_questions})
+
+
 @app.route('/current_graph_topic', methods=['GET'])
 def get_graph_name():
     if local_storage["current_graph"] == "None":
