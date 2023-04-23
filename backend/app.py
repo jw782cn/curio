@@ -3,7 +3,7 @@ from chat import Chat
 from graph import Graph
 
 app = Flask(__name__)
-chat = Chat()
+chat = Chat(model_name='gpt-3.5-turbo')
 graphs = {}
 local_storage = {"current_graph": "None"}
 
