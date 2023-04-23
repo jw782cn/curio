@@ -124,7 +124,7 @@ class Graph():
                 "arg2": "",
             }
         '''
-        system_prompt = get_text_from_file("update_graph.txt")
+        system_prompt = get_text_from_file("prompt/update_graph.txt")
         system_message = SystemMessage(system_prompt)
         user_prompt = f'current tree: \n {self.get_text()} \n\n===\n\ncurrent q&a:\nquestion:\n{question}\nanswer:\n{answer}'
         user_message = HumanMessage(user_prompt)
