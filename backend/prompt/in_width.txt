@@ -1,0 +1,13 @@
+===
+Task:
+Let's play a game. Act as a student who wants to learn about a new area. You have previously discussed the topic with your teacher in this conversation: {messages_content}.
+Now, you fully understand the last topic that you and your teacher is talking about. You want to backup a little bit and ask a new question about another concept within this area. Write a question to invite your teacher to explain another concept.
+
+===
+Instructions:
+- Be polite and respectful in your question.
+- Make sure your question is specific, clear.
+- Make sure your question is concise and within one sentence.
+
+===
+Your Answer:

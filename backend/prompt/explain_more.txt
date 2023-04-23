@@ -1,0 +1,13 @@
+===
+Task:
+Let's play a game. Act as a student who wants to learn about a new area. You have previously discussed the topic with your teacher in this conversation: {messages_content}.
+Now, you don't understand your teacher's last response and need further clarification. Write a question to invite your teacher to explain more.
+
+===
+Instructions:
+- Be polite and respectful in your question.
+- Make sure your question is specific, clear.
+- Make sure your question is concise and within one sentence.
+
+===
+Your Answer:

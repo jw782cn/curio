@@ -1,0 +1,13 @@
+===
+Task:
+Let's play a game. Act as a student who wants to learn about a new area. You have previously discussed the topic with your teacher in this conversation: {messages_content}.
+Now, you understand well about the last concept that your teacher explains to you, and you want to extend or ask more in depth based on your last conversation. Write a question to ask more in depth.
+
+===
+Instructions:
+- Be polite and respectful in your question.
+- Make sure your question is specific, clear.
+- Make sure your question is concise and within one sentence.
+
+===
+Your Answer:
