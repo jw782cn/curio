@@ -11,10 +11,12 @@ local_storage = {"current_graph": "None"}
 def hello():
     return 'Hello, World!'
 
+# curl -X POST -H "Content-Type: application/json" -d '{"question": "What is finance?"}' http://127.0.0.1:5000/ask_question
 @app.route('/ask_question', methods=['POST'])
 def ask_question():
     question = request.json['question']
     answer = chat.ask_question(question=question)
+    print(question, answer)
     # update graph
     current_graph = local_storage["current_graph"]
     graphs[current_graph].update_graph(question, answer)
@@ -36,7 +38,7 @@ def get_graph_name():
     current_graph = str(local_storage["current_graph"])
     return graphs[current_graph].topic
 
-# curl -X POST -H "Content-Type: application/json" -d '{"topic":"bitcoin"}' http://127.0.0.1:5000/create_graph
+# curl -X POST -H "Content-Type: application/json" -d '{"topic":"finance"}' http://127.0.0.1:5000/create_graph
 @app.route('/create_graph', methods=['POST'])
 def create_graph():
     topic = request.json['topic']

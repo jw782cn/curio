@@ -57,7 +57,7 @@ def tree_to_text(node, indent=0):
     if node is None:
         return ""
 
-    text = "    " * indent + "+-- " + node.id + " " + node.name + "\n"
+    text = "    " * indent + "+-- " + str(node.id) + " " + node.name + "\n"
 
     for child in node.children:
         text += tree_to_text(child, indent + 1)
@@ -92,10 +92,12 @@ class Graph():
         '''
         insert new node to tree
         '''
-        node = TreeNode(len(self.nodes), name, name)
+        current_id = len(self.nodes)
+        node = TreeNode(current_id, name, name)
         node.context.append(f'question: {question} \n answer: {answer}')
         print("insert node: ", node.id, node.name)
         self.nodes[parent_id].children.append(node)
+        self.nodes[current_id] = node
         
     def update_node(self, node_id, question, answer):
         '''
@@ -112,25 +114,18 @@ class Graph():
         2. ask chatgpt to insert new node or update existing node
         
             For the "insert" operation: 
-            {
-                "operation: "insert",
-                "arg1": {parent_id},
-                "arg2": {summarized_topic},
-            }
+            { "operation: "insert", "arg1": {parent_id}, "arg2": {summarized_topic} }
             For the "update" operation:
-            {
-                "operation: "update",
-                "arg1": {updated_id},
-                "arg2": "",
-            }
+            { "operation: "update", "arg1": {updated_id}, "arg2": "" }
         '''
-        system_prompt = get_text_from_file("prompt/update_graph.txt")
-        system_message = SystemMessage(system_prompt)
+        system_prompt = get_text_from_file("backend/prompt/update_graph.txt")
+        system_message = SystemMessage(content=system_prompt)
         user_prompt = f'current tree: \n {self.get_text()} \n\n===\n\ncurrent q&a:\nquestion:\n{question}\nanswer:\n{answer}'
-        user_message = HumanMessage(user_prompt)
+        user_message = HumanMessage(content=user_prompt)
         messages = [system_message, user_message]
         response = self.chatgpt.chat_with_messages(messages, model_name="gpt-4")
-        response = json.dumps(response.content)
+        response = json.loads(response.content)
+        print(response)
         response["arg1"] = int(response["arg1"])
         # update data
         self.update_data(response, question, answer)
@@ -151,9 +146,9 @@ class Graph():
             "arg2": "",
         }
         '''
-        if operation.operation == "insert":
+        if operation["operation"] == "insert":
             self.insert_node(operation["arg1"], operation["arg2"], question, answer)
-        elif operation.operation == "update":
+        elif operation["operation"] == "update":
             self.update_node(operation["arg1"], question, answer)
         print("updated data")
         
