@@ -22,7 +22,7 @@ def ask_question():
     # update graph
     current_graph = local_storage["current_graph"]
     graphs[current_graph].update_graph(question, answer)
-    return answer
+    return jsonify({"answer": answer})
 
 @app.route('/suggest_new_questions', methods=['GET'])
 def suggest_new_questions():
@@ -43,13 +43,12 @@ def get_graph_name():
 # curl -X POST -H "Content-Type: application/json" -d '{"topic":"finance"}' http://127.0.0.1:5000/create_graph
 @app.route('/create_graph', methods=['POST'])
 def create_graph():
+    topic = request.json['topic']
+    graph = Graph(topic)
+    length = len(graphs)
+    graphs[str(length)] = graph
     if local_storage["current_graph"] == "None":
-        topic = request.json['topic']
-        graph = Graph(topic)
-        length = len(graphs)
-        graphs[str(length)] = graph
-        if local_storage["current_graph"] == "None":
-            local_storage["current_graph"] = str(length)
+        local_storage["current_graph"] = str(length)
     return str(length)
 
 @app.route('/get_current_graph_id')
