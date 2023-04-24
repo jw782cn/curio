@@ -25,7 +25,7 @@ function App() {
           <Footer /> */}
         </div>
         <div className="right">
-          <ExploreButton />
+          {/* <ExploreButton /> */}
           <EChartsGraph />
           {/* <p>Mapping</p> */}
         </div>
