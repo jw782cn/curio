@@ -3,8 +3,9 @@
  Your AI teacher helps you explore the knowledge world.
 
 
+## Background
 
-## What’s painful in the world of education today…
+### What’s painful in the world of education today…
 
 - It can be intimidating to get into a new area
 
@@ -15,7 +16,7 @@
 
 
 
-## What we offer:
+### What we offer:
 
 - An **unlimitedly patient teacher** who is always willing to answer your questions, no matter how stupid they might be
 - Understand what you know so far, and **tell you what to learn next**
